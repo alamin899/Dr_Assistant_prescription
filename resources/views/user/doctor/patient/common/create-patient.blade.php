@@ -28,8 +28,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group-custom">
-                        <input type="date" name="date_of_birth" id="datepicker-autoclose" required="required" />
-                        <label class="control-label">Date of birth &nbsp;<span class="text-danger">*</span></label><i class="bar"></i>
+                        <input type="text" name="age" required="required" />
+                        <label class="control-label">Age &nbsp;<span class="text-danger">*</span></label><i class="bar"></i>
                     </div>
                 </div>
             </div>

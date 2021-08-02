@@ -9,18 +9,18 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
 
-    protected $dates=[
-        'date_of_birth'
-    ];
+//    protected $dates=[
+//        'date_of_birth'
+//    ];
 
     public function user()
     {
       return $this->belongsTo(User::class);
     }
 
-    public function age()
+    public function getAgeAttribute($value)
     {
-        return $this->date_of_birth->diff(Carbon::now())->format('%y years,%m month,%d days');
+        return $value." Years";
     }
 
     public function payments()

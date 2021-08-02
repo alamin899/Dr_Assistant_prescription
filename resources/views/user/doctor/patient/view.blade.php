@@ -27,7 +27,7 @@
                             <dt>Gender</dt>
                             <dd>{{$patient->gender ==1 ? "Male" : $patient->gender ==2 ? "Fe-Male" : "Other" }}</dd>
                             <dt>Age</dt>
-                            <dd>{{$patient->age()}}</dd>
+                            <dd>{{$patient->age}}</dd>
                         </dl>
                     </div>
                 </div>

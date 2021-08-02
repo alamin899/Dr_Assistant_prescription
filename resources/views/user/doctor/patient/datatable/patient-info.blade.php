@@ -7,7 +7,7 @@ Gender : @if($patient->gender ==1)
     Other
 @endif
 <br>
-Age : {{$patient->age()}} <br>
+Age : {{$patient->age}} <br>
 
 <a href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-prescription-page/'.$patient->id)}}')"><i class="ti ti-ink-pen"></i> Prescribe Now </a>
 <br>

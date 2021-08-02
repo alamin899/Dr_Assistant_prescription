@@ -120,13 +120,13 @@ class PatientController extends Controller
     {
         $request->validate([
             'phone' => 'required|unique:patients|max:255',
-            'date_of_birth' => 'required|date'
+            'age' => 'required'
         ]);
 
         $patient = new Patient();
         $patient->name = $request->get('name');
         $patient->gender = $request->get('gender');
-        $patient->date_of_birth = Carbon::parse($request->get('date_of_birth'))->format('Y-m-d');
+        $patient->age = $request->get('age');
         $patient->email = $request->get('email');
         $patient->address = $request->get('address');
         $patient->phone = $request->get('phone');
@@ -150,12 +150,12 @@ class PatientController extends Controller
     {
         $request->validate([
             'phone' => 'required', Rule::unique('patients')->ignore($id),
-            'date_of_birth' => 'required|date'
+            'age' => 'required'
         ]);
         $patient = Patient::findOrFail($id);
         $patient->name = $request->get('name');
         $patient->gender = $request->get('gender');
-        $patient->date_of_birth = $request->get('date_of_birth');
+        $patient->age = $request->get('age');
         $patient->email = $request->get('email');
         $patient->address = $request->get('address');
         $patient->phone = $request->get('phone');

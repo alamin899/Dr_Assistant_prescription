@@ -63,7 +63,7 @@
                             <tr>
                                 <th> <span class="prescription-p-title">Name</span> : {{$prescription->patient->name}}</th>
                                 <th> <span class="prescription-p-title">Age</span>
-                                    : {{$prescription->patient->date_of_birth->diff($prescription->created_at)->format('%y years,%m month,%d days')}}</th>
+                                    : {{$prescription->patient->age}}</th>
                                 <th><span class="prescription-p-title">Gender</span>
                                     : @if($prescription->patient->gender ==1)
                                         Male
