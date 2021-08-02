@@ -55,8 +55,8 @@
                                 </div>
                             </div>
                             <div class="form-group-custom">
-                                <input value="{{$patient->phone}}" type="text" name="phone"  required="required"/>
-                                <label class="control-label">Phone &nbsp;<span class="text-danger">*</span></label><i class="bar"></i>
+                                <input value="{{$patient->phone}}" type="text" name="phone" >
+                                <label class="control-label">Phone &nbsp;<span class="text-danger"></span></label><i class="bar"></i>
                             </div>
                             <div class="form-group-custom">
                                 <input value="{{$patient->email}}" type="text" name="email" />

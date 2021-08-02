@@ -50,6 +50,32 @@
 
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row" style="margin-left: 10px">
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="firstNumber" readonly value="{{mt_rand(1,30)}}">
+                                </div>
+                            </div>
+                            <div class="col-1 font-weight-bold" style="padding-top: 10px"> + </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="secondNumber" readonly value="{{mt_rand(1,15)}}">
+                                </div>
+                            </div>
+                            <div class="col-1 font-weight-bold" style="padding-top: 10px"> = </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <input class="form-control" type="number" name="totalNumber" required>
+                                </div>
+                            </div>
+                        </div>
+                        @if (session('capchaError'))
+                            <span class="help-block">
+                                <strong class="text-danger">{{ session('capchaError') }}</strong>
+                            </span>
+                        @endif
+                    </div>
 
 
                     <div class="form-group text-center m-t-40">

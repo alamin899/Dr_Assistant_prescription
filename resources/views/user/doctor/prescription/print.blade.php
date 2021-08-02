@@ -138,8 +138,7 @@
                                 @endif
                             </div>
                             <div class="col-md-8">
-                                <p class="prescription-p-title" style="border-top: 1px solid black; width: 150px;float: right;">Seal and
-                                    Signature</p>
+                                <p class="prescription-p-title text-center" style="border-top: 1px solid black; width: 150px;float: right;">Signature</p>
                             </div>
                         </div>
 

@@ -119,7 +119,6 @@ class PatientController extends Controller
     public function savePatient(Request $request)
     {
         $request->validate([
-            'phone' => 'required|unique:patients|max:255',
             'age' => 'required'
         ]);
 
@@ -149,7 +148,6 @@ class PatientController extends Controller
     public function updatePatient(Request $request, $id)
     {
         $request->validate([
-            'phone' => 'required', Rule::unique('patients')->ignore($id),
             'age' => 'required'
         ]);
         $patient = Patient::findOrFail($id);
