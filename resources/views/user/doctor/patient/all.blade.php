@@ -80,13 +80,20 @@
                 </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-2">
 
             </div>
 
             <div class="col-md-3">
                 <div class="form-group-custom">
-                    <input placeholder="Search" type="text" name="search_string"
+                    <input  type="number" name="patient_unique_id"
+                           value="{{ request()->query('patient_unique_id') }}"/>
+                    <label class="control-label">Patient Id</label><i class="bar"></i>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group-custom">
+                    <input  type="text" name="search_string"
                            value="{{ request()->query('search_string') }}"/>
                     <label class="control-label">Search String</label><i class="bar"></i>
                 </div>

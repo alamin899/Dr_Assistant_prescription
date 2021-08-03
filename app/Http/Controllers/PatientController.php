@@ -8,6 +8,7 @@ use App\Model\PatientDocument;
 use App\Model\PatientPayment;
 use App\Model\Prescription;
 use App\Traits\PatientFilter;
+use App\Traits\PatientTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ use Illuminate\Validation\Rule;
 
 class PatientController extends Controller
 {
-    use PatientFilter;
+    use PatientFilter, PatientTrait;
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -118,6 +119,7 @@ class PatientController extends Controller
      */
     public function savePatient(Request $request)
     {
+        $patient_unique_id = $this->patientUniqueIdGenerate();
         $request->validate([
             'age' => 'required'
         ]);
@@ -129,6 +131,7 @@ class PatientController extends Controller
         $patient->email = $request->get('email');
         $patient->address = $request->get('address');
         $patient->phone = $request->get('phone');
+        $patient->patient_unique_id = $patient_unique_id;
         $patient->user_id = auth()->user()->id;
         if ($request->hasFile('image')) {
             $patient->image = $request->file('image')

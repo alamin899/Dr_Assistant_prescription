@@ -62,6 +62,7 @@
                             <thead>
                             <tr>
                                 <th> <span class="prescription-p-title">Name</span> : {{$prescription->patient->name}}</th>
+                                <th> <span class="prescription-p-title">Id</span> : {{$prescription->patient->patient_unique_id}}</th>
                                 <th> <span class="prescription-p-title">Age</span>
                                     : {{$prescription->patient->age}}</th>
                                 <th><span class="prescription-p-title">Gender</span>

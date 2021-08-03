@@ -1,4 +1,5 @@
 <b>{{$patient->name}}</b> <br>
+Id: {{$patient->patient_unique_id}} <br>
 Gender : @if($patient->gender ==1)
     Male
 @elseif($patient->gender == 2)

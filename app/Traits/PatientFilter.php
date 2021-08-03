@@ -13,9 +13,12 @@ trait PatientFilter
     {
         $patient = Patient::query();
         $paginate = 10;
-
         if ($request->query('paginate') != '') {
             $paginate = $request->query('paginate');
+        }
+
+        if ($request->query('patient_unique_id') != '') {
+            $patient->where('patient_unique_id', 'like', '%' . trim($request->query('patient_unique_id')) . '%');
         }
 
         if ($request->query('search_string') != '') {
@@ -29,6 +32,7 @@ trait PatientFilter
         } else {
             $patient->orderBy('id', 'desc');
         }
+
 
         return $patient->paginate($paginate);
     }
