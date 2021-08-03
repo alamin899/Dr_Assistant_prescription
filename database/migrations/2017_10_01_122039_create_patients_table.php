@@ -24,6 +24,7 @@ class CreatePatientsTable extends Migration
             $table->string('phone')->nullable();
             $table->boolean('status')->default(1);
             $table->integer('user_id')->nullable();
+            $table->integer('patient_unique_id')->unique();
             $table->timestamps();
         });
     }

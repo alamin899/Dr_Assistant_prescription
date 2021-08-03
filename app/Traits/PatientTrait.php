@@ -12,7 +12,7 @@ trait PatientTrait
     {
         $patient = Patient::orderBy('id','desc')->first();
         $date = date('Y');
-        if (empty($patient)) {
+        if (empty($patient->patient_unique_id)) {
             $dateSerial = $this->generateSerial($date, 1);
         } else {
             $dateSerial = $patient->patient_unique_id+1;
@@ -22,6 +22,6 @@ trait PatientTrait
 
     private function generateSerial($date = '', $serial = '')
     {
-        return $date . str_pad($serial, 4, 0, STR_PAD_LEFT);
+        return $date . str_pad($serial, 5, 0, STR_PAD_LEFT);
     }
 }

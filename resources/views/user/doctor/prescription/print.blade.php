@@ -139,6 +139,7 @@
                                 @endif
                             </div>
                             <div class="col-md-8">
+                                <img src="{{url('/dashboard/images/rx.png')}}" width="60px" alt="">
                                 <p class="prescription-p-title text-center" style="border-top: 1px solid black; width: 150px;float: right;">Signature</p>
                             </div>
                         </div>
