@@ -127,7 +127,7 @@
                 <th>Patient Info</th>
                 <th>Contact Info</th>
                 <th>Medical Info</th>
-                <th width="80px">Investigation</th>
+                <th width="100px">Investigation</th>
                 <th width="25px">Action</th>
             </tr>
             </thead>
