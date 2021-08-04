@@ -40,5 +40,10 @@
 @include('assets.js')
 
 @yield('extra-js')
+<script>
+    setTimeout(function () {
+        $('.message').fadeOut('fast');
+    }, 3000);
+</script>
 </body>
 </html>

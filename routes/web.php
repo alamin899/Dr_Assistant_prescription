@@ -75,6 +75,7 @@ Route::middleware(['auth', 'active.user'])->group(function () {
         Route::post('/save-patient', 'PatientController@savePatient');
         Route::post('/save-medical-file/{patient_id}', 'PatientController@saveMedicalFile');
         Route::post('/update-patient/{id}', 'PatientController@updatePatient');
+        Route::post('/patient-primary-investigation', 'PatientController@updatePrimaryInvestigation')->name('patient.primary-investigation');
     });
 
     Route::middleware(['doctor'])->group(function () {

@@ -196,4 +196,13 @@ class PatientController extends Controller
         }
     }
 
+    public function updatePrimaryInvestigation(Request $request)
+    {
+        $patient = Patient::find($request->id);
+        $patient->primary_investigation = $request->primary_investigation;
+        if ($patient->update()){
+            return redirect('/all-patient')->with('primary_investigation_saved', 'Primary Investigation Saved');
+        }
+    }
+
 }

@@ -37,4 +37,9 @@ class Patient extends Model
     {
         return $this->hasMany(PatientDocument::class);
     }
+
+    public function getPrimaryInvestigationAttribute($value)
+    {
+        return (!empty($value))?$value:"No Data Found";
+    }
 }

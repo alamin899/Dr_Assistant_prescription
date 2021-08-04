@@ -113,6 +113,12 @@
             </div>
 
         </form>
+        @if (Session::get('primary_investigation_saved'))
+            <div class="alert alert-success message">
+                <p>{{Session::get('primary_investigation_saved')}}</p>
+            </div>
+        @endif
+
         <table class="table table-striped" id="datatable">
             <thead>
             <tr>
@@ -121,7 +127,7 @@
                 <th>Patient Info</th>
                 <th>Contact Info</th>
                 <th>Medical Info</th>
-                {{--<th>Status</th>--}}
+                <th width="80px">Investigation</th>
                 <th width="25px">Action</th>
             </tr>
             </thead>
@@ -133,6 +139,7 @@
                     <td>@include('user.doctor.patient.datatable.patient-info')</td>
                     <td>@include('user.doctor.patient.datatable.contact-info')</td>
                     <td>@include('user.doctor.patient.datatable.medical-info')</td>
+                    <td>{{$patient->primary_investigation}}</td>
                     <td>@include('user.doctor.patient.datatable.actions', ['id' => $patient->id])</td>
                 </tr>
             @endforeach
