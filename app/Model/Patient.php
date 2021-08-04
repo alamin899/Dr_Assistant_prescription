@@ -40,6 +40,6 @@ class Patient extends Model
 
     public function getPrimaryInvestigationAttribute($value)
     {
-        return (!empty($value))?$value: date('d-m-Y')." No Data Found";
+        return (!empty($value))?$value:" No Data Found";
     }
 }
