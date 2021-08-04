@@ -156,6 +156,10 @@ Route::middleware(['auth', 'active.user'])->group(function () {
         Route::post('/app-setting', 'SettingController@appSetup');
         Route::post('/prescription-print-setting', 'SettingController@postPrescriptionPrintSetting');
 
+        // Signature Setting
+        Route::get('/signature', 'SignatureController@create')->name('signature.create');
+        Route::post('/signature', 'SignatureController@store')->name('signature.store');
+
         // Save about
         Route::post('/save-about', 'WebSiteController@saveAboutMe');
 

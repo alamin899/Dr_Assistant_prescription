@@ -84,6 +84,7 @@
                         <li><a href="{{url('/all-schedule')}}">Schedule Setting</a></li>
                         <li><a href="{{url('/prescription-setting')}}">Prescription Setting</a></li>
                         <li><a href="{{url('/app-setting')}}">App Setting</a></li>
+                        <li><a href="{{route('signature.create')}}">Add Signature</a></li>
                         <li><a href="{{url('/profile')}}">Profile</a></li>
                     </ul>
                 </li>
