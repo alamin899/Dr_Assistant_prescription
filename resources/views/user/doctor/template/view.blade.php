@@ -54,7 +54,7 @@
 
                             <ol>
                                 @foreach($template->drugs as $drug)
-                                    <li><i>{{$drug->type}}</i> <b>{{$drug->drug['name']}}</b> {{$drug->strength}}
+                                    <li><i>{{$drug->type}}</i> <b>{{$drug->drug}}</b> {{$drug->strength}}
                                         <ul style="padding-left: 10px">
                                             <li style="list-style: none">{{$drug->dose}} &emsp; {{$drug->duration}}</li>
                                             <li style="list-style: none">{{$drug->advice}}</li>

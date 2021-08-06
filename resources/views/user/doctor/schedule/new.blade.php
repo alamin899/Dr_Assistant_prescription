@@ -55,7 +55,7 @@
                 e.preventDefault();
                 var data = new FormData(this);
                 $.ajax({
-                    url: "/save-schedule",
+                    url: "/application/save-schedule",
                     type:'POST',
                     data:data,
                     contentType: false,

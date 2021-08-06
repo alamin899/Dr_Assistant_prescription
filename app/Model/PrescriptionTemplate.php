@@ -13,7 +13,7 @@ class PrescriptionTemplate extends Model
 {
     public function drugs()
     {
-        return $this->hasMany(PrescriptionTemplateDrug::class)->with('drug');
+        return $this->hasMany(PrescriptionTemplateDrug::class,'prescription_template_id');
     }
 
     public function prescriptionTemplateLeft()

@@ -52,7 +52,7 @@ class PrescriptionApiController extends Controller
     public function getPatientDetails($id)
     {
         $patient = Patient::with('prescriptions')->findOrFail($id);
-        $age = $patient->age();
+        $age = $patient->age;
         return response()->json(['patient'=>$patient,'age'=>$age]);
     }
 

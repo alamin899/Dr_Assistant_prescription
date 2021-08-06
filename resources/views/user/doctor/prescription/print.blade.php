@@ -117,10 +117,10 @@
 
                                 <ol>
                                     @foreach($prescription->drugs as $drug)
-                                        <li><i>{{$drug->type}}</i> <b>{{$drug->drug['name']}}</b>
-                                            @if(config('app.generic_name') == 1)
-                                                ({{$drug->drug['generic_name']}})
-                                            @endif
+                                        <li><i>{{$drug->type}}</i> <b>{{$drug->drug}}</b>
+{{--                                            @if(config('app.generic_name') == 1)--}}
+{{--                                                ({{$drug->drug['generic_name']}})--}}
+{{--                                            @endif--}}
                                             {{$drug->strength}}
                                             <ul style="padding-left: 10px">
                                                 <li style="list-style: none">
@@ -139,7 +139,7 @@
                                 @endif
                             </div>
                             <div class="col-md-8">
-                                <img src="{{url('/dashboard/images/rx.png')}}" width="60px" alt="">
+                                <img src="{{url('/uploads/signatue/signature.png')}}" width="60px" alt="">
                                 <p class="prescription-p-title text-center" style="border-top: 1px solid black; width: 150px;float: right;">Signature</p>
                             </div>
                         </div>

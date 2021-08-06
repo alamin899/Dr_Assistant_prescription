@@ -63,19 +63,11 @@
                         <h4>Rx</h4>
                         <form action="javascript:void(0)" method="post" id="addDrugToListForm">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-6">
                                     <div class="form-group-custom">
-                                        <input type="text" id="drug_type" placeholder="Type"/>
+                                        <input placeholder="drugs" list="drugs" id="drug" name="drug" />
                                         <label class="control-label"></label><i class="bar"></i>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <select class="form-control select2" id="drug">
-                                        <option></option>
-                                        @foreach($drugs as $drug)
-                                            <option value="{{$drug->id}}">{{$drug->name}}</option>
-                                        @endforeach
-                                    </select>
                                 </div>
                                 <div class="col-md-2">
                                     <button type="button" class="btn btn-block btn-default waves-effect waves-light"
@@ -85,8 +77,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group-custom">
-                                        <input type="text" id="strength"/>
-                                        <label class="control-label">Strength</label><i class="bar"></i>
+                                        <datalist id="drugs">
+                                            @foreach($drugs as $drug)
+                                            <option>{{$drug->name}}</option>
+                                            @endforeach
+                                        </datalist>
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +167,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <button onclick="$(this).saveTemplate('/save-template',false);"
+                    <button onclick="$(this).saveTemplate('/application/save-template',false);"
                             class="btn btn-block btn-lg btn-white waves-effect waves-light">Save as Template
                         <i id="loadingSaveTemplate" class="fa fa-refresh fa-spin"></i>
                     </button>
@@ -196,7 +191,7 @@
 @section('extra-js')
     <script src="{{url('/dashboard/js/jquery.hotkeys-0.7.9.min.js')}}"></script>
     <script src="{{url('/dashboard/plugins/select2/js/select2.min.js')}}"></script>
-    <script src="{{url('/app_js/prescription-template.js')}}"></script>
+    <script src="{{url('/app_js/upd-prescription-template.js')}}"></script>
     <script src="{{url('/dashboard/plugins/jquery-ui/jquery-ui.js')}}"></script>
     <script src="{{url('/app_js/prescription-autocomplete.js')}}"></script>
     <script>
@@ -205,7 +200,7 @@
             $("#loadingSavePrescription").hide();
 
             var defaultPatient = $("#defaultPatient").val();
-            if(defaultPatient != '' || defaultPatient != null){
+            if (defaultPatient != '' || defaultPatient != null) {
                 $(this).getPatientDetails(defaultPatient);
                 $("#selectPatient").val(defaultPatient).change();
             }
@@ -261,30 +256,30 @@
             });
 
             // Create new patient on prescription page
-            $("#newPatient").on("submit",function (e) {
-               e.preventDefault();
-               data = new FormData(this);
-               $.ajax({
-                   url:'{{url('/save-patient')}}',
-                   type:'post',
-                   data : data,
-                   contentType: false,
-                   cache: false,
-                   processData:false,
-                   success:function (data) {
-                       $.Notification.notify('success','top right',"Patient added successfully","Patient has been added successfully");
-                       $("#selectPatient").append(
-                            $('<option>',{value:data.id,text:data.name + "|" +data.phone}).select2({
+            $("#newPatient").on("submit", function (e) {
+                e.preventDefault();
+                data = new FormData(this);
+                $.ajax({
+                    url: '{{url('/save-patient')}}',
+                    type: 'post',
+                    data: data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        $.Notification.notify('success', 'top right', "Patient added successfully", "Patient has been added successfully");
+                        $("#selectPatient").append(
+                            $('<option>', {value: data.id, text: data.name + "|" + data.phone}).select2({
                                 placeholder: "Select Patient"
                             })
                         );
 
-                       $("#selectPatient").val(data.id).trigger('change');
-                       $(".bs-example-modal-lg").modal('hide');
-                   },error:function (data) {
+                        $("#selectPatient").val(data.id).trigger('change');
+                        $(".bs-example-modal-lg").modal('hide');
+                    }, error: function (data) {
                         $(this).showAjaxError(data);
-                   }
-               });
+                    }
+                });
 
             });
 

@@ -35,7 +35,8 @@ class PrescriptionController extends Controller
      */
     public function printPrescription($id)
     {
-        $prescription = Prescription::findOrFail($id);
+        $prescription = Prescription::with('drugs')->findOrFail($id);
+//        dd($prescription);
         return view('user.doctor.prescription.print',[
             'prescription'  =>  $prescription
         ]);
@@ -109,7 +110,7 @@ class PrescriptionController extends Controller
                 foreach ($request->get('drugs') as $drug) {
                     $prescription_drug = new PrescriptionDrug();
                     $prescription_drug->prescription_id = $prescription->id;
-                    $prescription_drug->drug_id = $drug['drug_id'];
+                    $prescription_drug->drug = $drug['drug'];
                     $prescription_drug->type = $drug['drug_type'];
                     $prescription_drug->dose = $drug['dose'];
                     $prescription_drug->strength = $drug['strength'];

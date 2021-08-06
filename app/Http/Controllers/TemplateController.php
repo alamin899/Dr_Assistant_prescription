@@ -57,7 +57,8 @@ class TemplateController extends Controller
      */
     public function viewTemplate($id)
     {
-        $template = PrescriptionTemplate::findOrFail($id);
+        $template = PrescriptionTemplate::with('drugs')->findOrFail($id);
+//        dd($template);
         return view('user.doctor.template.view',[
             'template'      =>      $template
         ]);
@@ -110,6 +111,7 @@ class TemplateController extends Controller
      */
     private function saveTemplateDetails($template,$request)
     {
+//        dd($request);
         $template->name = $request->get('name') != "" | null ? $request->get('name') : 'Prescription Template'.PrescriptionTemplate::where('id','>','0')->count() .time();
         $template->note = $request->get('note');
         $template->advice = $request->get('advice');
@@ -127,12 +129,12 @@ class TemplateController extends Controller
                 foreach ($request->get('drugs') as $drug) {
                     $template_drug = new PrescriptionTemplateDrug();
                     $template_drug->prescription_template_id = $template->id;
-                    $template_drug->drug_id = $drug['drug_id'];
+                    $template_drug->drug = $drug['drug'];
                     $template_drug->dose = $drug['dose'];
                     $template_drug->duration = $drug['duration'];
-                    $template_drug->strength = $drug['strength'];
+//                    $template_drug->strength = $drug['strength'];
                     $template_drug->advice = $drug['drug_advice'];
-                    $template_drug->type = $drug['drug_type'];
+//                    $template_drug->type = $drug['drug_type'];
                     $template_drug->save();
                 }
                 return response()->json(['template'=>$template->name], 200);

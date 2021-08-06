@@ -22,7 +22,7 @@ class Prescription extends Model
 
     public function drugs()
     {
-        return $this->hasMany(PrescriptionDrug::class)->with('drug');
+        return $this->hasMany(PrescriptionDrug::class,'prescription_id');
     }
 
     public function prescriptionLeft()

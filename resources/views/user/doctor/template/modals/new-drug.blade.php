@@ -12,7 +12,7 @@
                         <div class="col-md-6">
                             <div class="form-group-custom">
                                 <input type="text" name="name" required="required"/>
-                                <label class="control-label">Trade Nmae</label><i class="bar"></i>
+                                <label class="control-label">Trade Name</label><i class="bar"></i>
                             </div>
                         </div>
                         <div class="col-md-6">

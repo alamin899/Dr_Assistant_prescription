@@ -9,49 +9,83 @@
                 <form action="#" method="post" id="drugUpdateForm">
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group-custom">
-                                <input type="text" id="updateDrugType" placeholder="Type" />
-                                <label class="control-label"></label><i class="bar"></i>
+                                <input  placeholder="drugs" list="drugs" id="drugUpdateSelect" name="drug" />
+                                <label class="control-label">Drug</label><i class="bar"></i>
+                                <datalist id="drugs">
+                                    @foreach($drugs as $drug)
+                                        <option>{{$drug->name}}</option>
+                                    @endforeach
+                                </datalist>
                             </div>
                         </div>
-                        <div class="col-md-5">
-                            <select class="form-control select2" id="drugUpdateSelect">
-                                <option></option>
-                                @foreach($drugs as $drug)
-                                    <option value="{{$drug->id}}">{{$drug->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group-custom">
-                                <input type="text" id="updateDrugStrength"/>
-                                <label class="control-label">Strength</label><i class="bar"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group-custom">
                                 <input type="text" id="updateDrugDose"/>
                                 <label class="control-label">Dose</label><i class="bar"></i>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group-custom">
                                 <input type="text" id="updateDrugDuration"/>
                                 <label class="control-label">Duration</label><i class="bar"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group-custom">
                                 <input type="text" id="updateDrugAdvice"/>
                                 <label class="control-label">Advice</label><i class="bar"></i>
                             </div>
                         </div>
                     </div>
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-3">--}}
+{{--                            <div class="form-group-custom">--}}
+{{--                                <input type="text" id="updateDrugType" placeholder="Type" />--}}
+{{--                                <label class="control-label"></label><i class="bar"></i>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-5">--}}
+{{--                            <select class="form-control select2" id="drugUpdateSelect">--}}
+{{--                                <option></option>--}}
+{{--                                @foreach($drugs as $drug)--}}
+{{--                                    <option value="{{$drug->id}}">{{$drug->name}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-4">--}}
+{{--                            <div class="form-group-custom">--}}
+{{--                                <input type="text" id="updateDrugStrength"/>--}}
+{{--                                <label class="control-label">Strength</label><i class="bar"></i>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div class="form-group-custom">--}}
+{{--                                <input type="text" id="updateDrugDose"/>--}}
+{{--                                <label class="control-label">Dose</label><i class="bar"></i>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div class="form-group-custom">--}}
+{{--                                <input type="text" id="updateDrugDuration"/>--}}
+{{--                                <label class="control-label">Duration</label><i class="bar"></i>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <div class="form-group-custom">--}}
+{{--                                <input type="text" id="updateDrugAdvice"/>--}}
+{{--                                <label class="control-label">Advice</label><i class="bar"></i>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <button type="submit" hidden>Submit</button>
                 </form>
             </div>
