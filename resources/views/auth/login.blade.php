@@ -10,7 +10,7 @@
     <div class="wrapper-page">
         <div class="card-box form-zoom-in-up {{ $errors->has('email') || $errors->has('password') ? 'form-shake' : '' }}">
             <div class="panel-heading">
-                <h4 class="text-center"> Login to <strong>Dr.Assistant</strong></h4>
+                <h4 class="text-center"> Welcome To <strong>Dr.Assistant</strong></h4>
             </div>
 
             <div class="p-20">

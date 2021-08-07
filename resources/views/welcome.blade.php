@@ -27,19 +27,19 @@
                     </p>
                 </div>
             </div>
-           <div class="col-md-12" style="padding-top: 85px;">
-               <div class="card-box">
-                   <div class="panel-heading">
-                       <h4 class="text-center"><strong>About Me</strong></h4>
-                   </div>
-                   <div class="card-content" style="padding-top: 25px;">
-                       <center>
-                           {!! nl2br(e(\App\Model\About::first() ? \App\Model\About::first()->about : "Demo About")) !!}
-                       </center>
-                   </div>
+{{--           <div class="col-md-12" style="padding-top: 85px;">--}}
+{{--               <div class="card-box">--}}
+{{--                   <div class="panel-heading">--}}
+{{--                       <h4 class="text-center"><strong>About Me</strong></h4>--}}
+{{--                   </div>--}}
+{{--                   <div class="card-content" style="padding-top: 25px;">--}}
+{{--                       <center>--}}
+{{--                           {!! nl2br(e(\App\Model\About::first() ? \App\Model\About::first()->about : "Demo About")) !!}--}}
+{{--                       </center>--}}
+{{--                   </div>--}}
 
-               </div>
-           </div>
+{{--               </div>--}}
+{{--           </div>--}}
         </div>
         <div style="padding: 100px"></div>
     </div>

@@ -58,7 +58,7 @@
                         </style>
 
 
-                        <table width="100%" style="margin-bottom: 10px;">
+                        <table width="100%" style="margin-bottom: 10px; ">
                             <thead>
                             <tr>
                                 <th> <span class="prescription-p-title">Name</span> : {{$prescription->patient->name}}</th>
@@ -81,9 +81,9 @@
                             </tr>
                             </thead>
                         </table>
-                        <div class="row">
+                        <div class="row" style="border-top: 2px solid orangered !important">
 
-                            <div class="col-md-4" style="margin-top: 0px;">
+                            <div class="col-md-4" style="margin-top: 7px;">
                                 <dl>
                                     @if($prescription->prescriptionLeft->cc != null || $prescription->prescriptionLeft->cc != "" )
                                     <dt class="prescription-p-title">Chief Complain :</dt>
@@ -112,7 +112,7 @@
                                 </dl>
 
                             </div>
-                            <div class="col-md-8" style="border-left: 1px solid black;">
+                            <div class="col-md-8" style="border-left: 1px solid black;margin-top: 7px">
                                 <img src="{{url('/dashboard/images/rx.png')}}" width="30px" alt="">
 
                                 <ol>

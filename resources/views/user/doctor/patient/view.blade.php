@@ -17,7 +17,7 @@
                 <h4 class="card-title">Medical History of - {{$patient->name}}</h4>
                 <div class="row">
                     <div class="col-md-4">
-                        <img width="250px" src="{{$patient->iamge != null ? $patient->iamge : "/dashboard/images/image_placeholder.jpg"}}" alt="">
+                        <img width="250px" src="{{($patient->image != null) ? $patient->image : "/dashboard/images/image_placeholder.jpg"}}" alt="">
 
                     </div>
                     <div class="col-md-8">

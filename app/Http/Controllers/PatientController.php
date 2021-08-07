@@ -205,4 +205,12 @@ class PatientController extends Controller
         }
     }
 
+    public function prescriptionViewByPatient($id)
+    {
+        $patient = Patient::findOrFail($id);
+        return view('user.doctor.patient.prescription-view', [
+            'patient' => $patient
+        ]);
+    }
+
 }

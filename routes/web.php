@@ -43,15 +43,14 @@ Route::middleware(['auth', 'active.user'])->group(function () {
     Route::post('/change-password', 'SettingController@changePassword');
 
 
-// Prescription Management
-    Route::get('/take-patient-to-prescription-page/{patient_id}', 'PrescriptionController@takePatientToPrescription');
-    Route::get('/new-prescription', 'PrescriptionController@newPrescription');
-    Route::get('/all-prescription', 'PrescriptionController@allPrescription');
-    Route::get('/print-prescription/{id}', 'PrescriptionController@printPrescription');
-    Route::get('/delete-prescription/{id}', 'PrescriptionController@deletePrescription');
-    Route::post('/save-prescription', 'PrescriptionController@savePrescription');
-
     Route::middleware('assistant')->group(function () {
+
+
+        // Prescription Management
+        Route::get('/take-patient-to-prescription-page/{patient_id}', 'PrescriptionController@takePatientToPrescription');
+        Route::get('/all-prescription', 'PrescriptionController@allPrescription');
+        Route::get('/print-prescription/{id}', 'PrescriptionController@printPrescription');
+
         //Appointment
         Route::get('/take-patient-to-appointment/{patient_id}', 'AppointmentController@takePatientToAppointment');
         Route::get('/new-appointment', 'AppointmentController@newAppointment');
@@ -76,9 +75,17 @@ Route::middleware(['auth', 'active.user'])->group(function () {
         Route::post('/save-medical-file/{patient_id}', 'PatientController@saveMedicalFile');
         Route::post('/update-patient/{id}', 'PatientController@updatePatient');
         Route::post('/patient-primary-investigation', 'PatientController@updatePrimaryInvestigation')->name('patient.primary-investigation');
+        Route::get('/patient-prescriptions/{id}', 'PatientController@prescriptionViewByPatient')->name('patient.prescriptions');
+
     });
 
     Route::middleware(['doctor'])->group(function () {
+        // Prescription Management
+        Route::get('/new-prescription', 'PrescriptionController@newPrescription');
+        Route::get('/delete-prescription/{id}', 'PrescriptionController@deletePrescription');
+        Route::post('/save-prescription', 'PrescriptionController@savePrescription');
+
+
         //Prescription Helper - Drug Type
         Route::get('/delete-drug-type/{id}', 'PrescriptionHelperController@deleteDrugType');
         Route::post('/save-drug-type', 'PrescriptionHelperController@saveDrugType');

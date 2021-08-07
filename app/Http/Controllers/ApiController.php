@@ -190,7 +190,7 @@ class ApiController extends Controller
      */
     public function allAppointmentToDataTable()
     {
-        $appointment = PatientAppointment::with('user')
+        $appointment = PatientAppointment::with('user','patient')
             ->orderBy('created_at','desc')
             ->orderBy('status','asc')
             ->get();
@@ -207,7 +207,7 @@ class ApiController extends Controller
             })
             ->addColumn('actions','user.doctor.appointment.datatable.actions')
             ->editColumn('status',function ($appointment){
-                return $appointment->status ==0 ? 'Pending' : 'Done';
+                return count($appointment->patient->prescriptions > 0) ? 'Done' : 'Pending';
             })
             ->addColumn('#',function (){
                 static $i = 1;

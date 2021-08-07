@@ -36,7 +36,7 @@
                                     Other
                                 @endif
                             <dt>Age</dt>
-                            <dd>{{$patient->age()}}</dd>
+                            <dd>{{$patient->age}}</dd>
                         </dl>
                     </div>
                 </div>

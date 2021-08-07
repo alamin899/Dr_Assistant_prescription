@@ -10,6 +10,12 @@ Gender : @if($patient->gender ==1)
 <br>
 Age : {{$patient->age}} <br>
 
-<a href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-prescription-page/'.$patient->id)}}')"><i class="ti ti-ink-pen"></i> Prescribe Now </a>
+@doctor
+<a href="javascript:void(0);" onclick="window.location.replace('{{url('/patient-prescriptions/'.$patient->id)}}')"><i class="fa fa-eye"></i>View Prescription </a><br>
+<a href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-prescription-page/'.$patient->id)}}')"><i class="fa fa-plus-circle"></i> Prescribe Now </a>
+@enddoctor
+@assistant
+<a href="javascript:void(0);" onclick="window.location.replace('{{url('/patient-prescriptions/'.$patient->id)}}')"><i class="fa fa-eye"></i>View Prescription </a>
+@endassistant
 <br>
-<a href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-appointment/'.$patient->id)}}')"><i class="ti ti-calendar"></i> New Appointment </a>
+<a href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-appointment/'.$patient->id)}}')"><i class="fa fa-plus"></i> New Appointment </a>
