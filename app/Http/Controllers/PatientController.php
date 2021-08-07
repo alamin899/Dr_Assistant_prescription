@@ -213,4 +213,11 @@ class PatientController extends Controller
         ]);
     }
 
+    public function primaryInvestigation($id)
+    {
+        $patient = Patient::findOrFail($id);
+        return view('user.doctor.patient.primary-investigation', [
+            'patient' => $patient
+        ]);
+    }
 }
