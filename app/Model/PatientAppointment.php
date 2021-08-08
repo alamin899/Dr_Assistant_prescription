@@ -16,15 +16,15 @@ class PatientAppointment extends Model
         return $this->belongsTo(Patient::class)->with('prescriptions');
     }
 
-    public function schedule()
-    {
-        return $this->belongsTo(Appointment::class,'appointment_id');
-    }
+//    public function schedule()
+//    {
+//        return $this->belongsTo(Appointment::class,'appointment_id');
+//    }
 
-    public function payment()
-    {
-        return $this->hasOne(PatientPayment::class,'patient_appointment_id');
-    }
+//    public function payment()
+//    {
+//        return $this->hasOne(PatientPayment::class,'patient_appointment_id');
+//    }
 
     public function user()
     {

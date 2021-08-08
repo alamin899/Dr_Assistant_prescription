@@ -197,7 +197,7 @@ class ApiController extends Controller
         return datatables($appointment)
             ->addColumn('patient',function($appointment){
                 return view('user.doctor.appointment.datatable.patient',[
-                    'appointment'   =>  $appointment
+                    'appointment'   =>  $appointment,
                 ]);
             })
             ->addColumn('appointment',function ($appointment){
@@ -207,7 +207,7 @@ class ApiController extends Controller
             })
             ->addColumn('actions','user.doctor.appointment.datatable.actions')
             ->editColumn('status',function ($appointment){
-                return count($appointment->patient->prescriptions > 0) ? 'Done' : 'Pending';
+                return count($appointment->patient->prescriptions )> 0 ? 'Done' : 'Pending';
             })
             ->addColumn('#',function (){
                 static $i = 1;

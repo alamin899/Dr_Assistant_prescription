@@ -12,9 +12,9 @@
     Phone : <b>{{$appointment->patient->phone}}</b> <br>
     Email : <b>{{$appointment->patient->email}}</b>
    </span> <br>
+    @if($user_role ==2)
     <a href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-prescription-page/'.$appointment->patient->id)}}')" class="btn btn-default"><i class="ti-pencil"></i> Write new prescription</a>
-
+    @endif
 </div>
 
-</p>
 

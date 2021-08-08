@@ -44,24 +44,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group-custom">
-                                <select required="required" class="form-control select3" name="appointment_id" id="">
-                                    <option value="">Select Place</option>
-                                    @foreach($schedules as $schedule)
-                                        <option {{$schedule->id == $appointment->appointment_id ? "selected" : ''}} value="{{$schedule->id}}">{{$schedule->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group-custom">
-                                <input type="text" value="{{$appointment->payment ? $appointment->payment->payment : null}}" name="payment"/>
-                                <label class="control-label">Payment Amount &nbsp;</label><i class="bar"></i>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="form-group-custom">
                         <textarea name="note" >{{$appointment->note}}</textarea>
